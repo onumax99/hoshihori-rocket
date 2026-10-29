@@ -1,0 +1,11 @@
+{
+  "name": "hoshihori-rocket",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tools/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

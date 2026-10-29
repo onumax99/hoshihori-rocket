@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ほしほりロケット</title>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <div id="top">
+    <div id="bars">
+      <div class="bar"><span>⛽</span><div class="bw"><div id="fuelB"></div></div></div>
+      <div class="bar"><span>🛡</span><div class="bw"><div id="hullB"></div></div></div>
+      <div id="cargo"></div>
+    </div>
+    <div id="tbtns">
+      <button id="bMap" class="sb" title="マップ (M)">🗺</button>
+      <button id="bWarp" class="sb" title="時間加速 (T)">x1</button>
+      <button id="bMenu" class="sb" title="メニュー">☰</button>
+    </div>
+  </div>
+  <div id="info"></div>
+</div>
+
+<div id="mid">
+  <button id="bShop" class="pill">🛠 ガレージ</button>
+  <button id="bIce" class="pill">🧊→⛽ 氷で給油</button>
+  <button id="bSos" class="pill sos">🆘 救難信号</button>
+</div>
+
+<div id="ctrl">
+  <div class="lg"><button id="bL" class="cb">◀</button><button id="bR" class="cb">▶</button></div>
+  <div class="rg"><button id="bD" class="cb drill off">⛏</button><button id="bT" class="cb thr">🔥</button></div>
+</div>
+
+<div id="toast"></div>
+
+<div id="shop" class="panel hide">
+  <div class="ph"><span>🛠 ガレージ</span><button class="x" id="shopX">✕</button></div>
+  <div id="storeRow"></div>
+  <div id="upList"></div>
+</div>
+
+<div id="menu" class="ov hide">
+  <div class="card">
+    <div class="ph"><span>☰ メニュー</span><button class="x" id="menuX">✕</button></div>
+    <button class="mb" id="mHelp">❓ 遊び方</button>
+    <button class="mb" id="mSos">🆘 基地へ緊急帰還（貨物は失う）</button>
+    <button class="mb" id="mReset">🗑 最初からやり直す</button>
+  </div>
+</div>
+
+<div id="title" class="ov">
+  <div class="card">
+    <h1>🚀 ほしほりロケット</h1>
+    <div class="sub">星を掘って、強くなって、もっと遠くの星へ</div>
+    <ul>
+      <li>◀ ▶ … ロケットの向きを回す（着陸中は地面を移動）</li>
+      <li>🔥 … エンジン噴射。星には<b>重力</b>があるよ</li>
+      <li>⛏ … 着陸中に長押しで掘る。鉱石は勝手に吸い込む</li>
+      <li>点線 … 軌道予測。<b>ゆっくり・まっすぐ</b>降りれば着陸成功</li>
+      <li>ふるさと星の🏠基地に降りると、荷下ろし・給油・修理・ガレージで強化</li>
+      <li>🌟 目標：遠くの星で<b>星晶</b>を集めて「星間エンジン」を作ろう</li>
+    </ul>
+    <div class="kb">キーボード：←→ / A D 回転　↑ / W 噴射　Space / ↓ 掘る　E ガレージ　M マップ　T 加速</div>
+    <button class="big" id="startB">はじめる</button>
+  </div>
+</div>
+
+<div id="win" class="ov hide">
+  <div class="card" style="text-align:center">
+    <h1>🌟 星間エンジン完成！</h1>
+    <div class="sub" style="font-size:15px;margin:10px 0 6px">ちいさなロケットが、ついに銀河を渡れるようになった。<br>おつかれさま！このまま星を掘り続けてもOK。</div>
+    <button class="big" id="winB">つづける</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
